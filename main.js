@@ -1,11 +1,37 @@
+//for user story (1)
+//allows user to create new row by clicking button on page
+
 const rowButton = document.getElementById("row-Button");
 
-rowButton.addEventListener("click", addNewRow);
+const myTable = document.getElementById("myTable");
 
-const table = document.querySelector("table");
+rowButton.addEventListener("click", newRow);
 
-function addNewRow(e) {
-  let newRow = table.insertRow(-1);
-  let newCell = newRow.insertCell(0);
-  newCell.innerHTML = "New Cell";
+function newRow() {
+  let row = document.createElement("tr");
+  let rowCell = document.createElement("td");
+  row.className = "new-Row";
+  rowCell.innerHTML = "New Row";
+  myTable.append(row);
+  row.append(rowCell);
+}
+
+//for user story (2)
+//Allows user to create new column by clicking button on page
+
+const colButton = document.getElementById("column-Button");
+
+//const col = document.querySelector(".row");
+
+colButton.addEventListener("click", addNewColumn);
+//let lastTr = col.lastElementChild;
+
+//trying out new way
+
+function addNewColumn() {
+  //let newColumn = document.createElement("tr");
+  let newColCell = document.createElement("td");
+  let newCol = myTable.querySelector(".new-Row");
+  newColCell.innerHTML = "New Column";
+  newCol.append(newColCell);
 }
