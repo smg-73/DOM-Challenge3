@@ -24,9 +24,6 @@ const colButton = document.getElementById("column-Button");
 //const col = document.querySelector(".row");
 
 colButton.addEventListener("click", addNewColumn);
-//let lastTr = col.lastElementChild;
-
-//trying out new way
 
 function addNewColumn() {
   //let newColumn = document.createElement("tr");
@@ -34,4 +31,20 @@ function addNewColumn() {
   let newCol = myTable.querySelector(".new-Row");
   newColCell.innerHTML = "New Column";
   newCol.append(newColCell);
+}
+
+// 3. remove row
+
+const removeRowButton = document.getElementById("remove-row-button");
+
+removeRowButton.addEventListener("click", removeRow);
+
+let amountofRows = 1;
+
+function removeRow() {
+  //grab the main grid
+  let lastRow = document.getElementById("myTable");
+  lastRow.deleteRow(-1);
+
+  amountofRows--;
 }
